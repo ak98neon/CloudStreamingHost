@@ -19,7 +19,7 @@ public class MachineClient extends Thread {
 
     @Override
     public void run() {
-        try {
+        try (ByteArrayOutputStream tmp = new ByteArrayOutputStream()) {
             Robot robot = new Robot();
 
             Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -28,24 +28,23 @@ public class MachineClient extends Thread {
             while (true) {
                 BufferedImage screenCapture = robot.createScreenCapture(shotArea);
 
-                ByteArrayOutputStream tmp = new ByteArrayOutputStream();
                 ImageIO.write(screenCapture, "png", tmp);
                 tmp.close();
                 System.out.println("Image size: " + tmp.size());
-                try {
-                    ImageIO.write(screenCapture, "jpeg", socket.getOutputStream());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                ImageIO.write(screenCapture, "jpeg", outputStream);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            closeSocket();
         } finally {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            closeSocket();
+        }
+    }
+
+    private void closeSocket() {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
