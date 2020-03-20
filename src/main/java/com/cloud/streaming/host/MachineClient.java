@@ -32,6 +32,7 @@ public class MachineClient extends Thread {
                 tmp.close();
                 System.out.println("Image size: " + tmp.size());
                 ImageIO.write(screenCapture, "jpeg", outputStream);
+                tmp.reset();
             }
         } catch (Exception e) {
             closeSocket();
