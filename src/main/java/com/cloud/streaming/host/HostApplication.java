@@ -1,5 +1,6 @@
 package com.cloud.streaming.host;
 
+import com.cloud.streaming.host.server.MachineClient;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

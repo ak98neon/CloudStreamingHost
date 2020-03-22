@@ -1,5 +1,7 @@
 package com.cloud.streaming.host;
 
+import com.cloud.streaming.host.gui.KeyEventObserver;
+import com.cloud.streaming.host.gui.MouseEventObserver;
 import com.cloud.streaming.host.gui.WindowPanel;
 
 import javax.imageio.ImageIO;
@@ -7,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.Socket;
 
 public class ClientApp extends Thread {
@@ -21,7 +24,11 @@ public class ClientApp extends Thread {
         try {
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-            WindowPanel windowPanel = new WindowPanel();
+            OutputStream outputStream = socket.getOutputStream();
+            KeyEventObserver keyListener = new KeyEventObserver(outputStream);
+            MouseEventObserver mouseListener = new MouseEventObserver(outputStream);
+            
+            WindowPanel windowPanel = new WindowPanel(mouseListener, keyListener);
             JFrame window = new JFrame("Streaming screen");
             window.add(windowPanel);
             window.setSize(screenSize);

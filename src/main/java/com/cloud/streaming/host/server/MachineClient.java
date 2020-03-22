@@ -1,4 +1,4 @@
-package com.cloud.streaming.host;
+package com.cloud.streaming.host.server;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -21,6 +21,9 @@ public class MachineClient extends Thread {
     public void run() {
         try (ByteArrayOutputStream tmp = new ByteArrayOutputStream()) {
             Robot robot = new Robot();
+
+            EventHandler eventHandler = new EventHandler(socket);
+            eventHandler.start();
 
             Toolkit toolkit = Toolkit.getDefaultToolkit();
             Rectangle shotArea = new Rectangle(toolkit.getScreenSize());
