@@ -29,7 +29,6 @@ public class MachineClient extends Thread {
                 BufferedImage screenCapture = robot.createScreenCapture(shotArea);
 
                 ImageIO.write(screenCapture, "png", tmp);
-                tmp.close();
                 System.out.println("Image size: " + tmp.size());
                 ImageIO.write(screenCapture, "jpeg", outputStream);
                 tmp.reset();

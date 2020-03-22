@@ -13,7 +13,7 @@ public class ClientApp extends Thread {
     private Socket socket;
 
     public ClientApp() throws IOException {
-        this.socket = new Socket("192.168.31.65", NetworkConstants.PORT);
+        this.socket = new Socket("localhost", NetworkConstants.PORT);
     }
 
     @Override
