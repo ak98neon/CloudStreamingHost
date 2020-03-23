@@ -1,4 +1,4 @@
-package com.cloud.streaming.host.gui;
+package com.cloud.streaming.host.client;
 
 import com.cloud.streaming.host.server.EventData;
 

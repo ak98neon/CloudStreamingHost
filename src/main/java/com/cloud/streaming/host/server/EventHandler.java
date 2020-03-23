@@ -1,6 +1,6 @@
 package com.cloud.streaming.host.server;
 
-import com.cloud.streaming.host.gui.EventType;
+import com.cloud.streaming.host.client.EventType;
 import com.google.gson.Gson;
 
 import java.awt.*;
@@ -46,7 +46,7 @@ public class EventHandler extends Thread {
                         eventData = gson.fromJson(action, EventData.class);
                         handleMousePress(eventData);
                         break;
-                    case KEY_PRESS:
+                    case KEY_TYPED:
                         action = scanner.nextLine();
                         eventData = gson.fromJson(action, EventData.class);
                         handleKeyPress(eventData);

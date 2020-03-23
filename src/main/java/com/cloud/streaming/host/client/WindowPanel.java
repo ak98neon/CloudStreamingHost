@@ -1,4 +1,4 @@
-package com.cloud.streaming.host.gui;
+package com.cloud.streaming.host.client;
 
 import javax.swing.*;
 import java.awt.*;

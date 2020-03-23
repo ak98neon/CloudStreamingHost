@@ -1,8 +1,8 @@
-package com.cloud.streaming.host.gui;
+package com.cloud.streaming.host.client;
 
 public enum EventType {
     MOUSE_CLICK(1),
-    KEY_PRESS(2),
+    KEY_TYPED(2),
     MOUSE_MOVE(3),
     ;
 

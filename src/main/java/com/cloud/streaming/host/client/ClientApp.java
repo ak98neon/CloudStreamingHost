@@ -1,8 +1,6 @@
-package com.cloud.streaming.host;
+package com.cloud.streaming.host.client;
 
-import com.cloud.streaming.host.gui.KeyEventObserver;
-import com.cloud.streaming.host.gui.MouseEventObserver;
-import com.cloud.streaming.host.gui.WindowPanel;
+import com.cloud.streaming.host.NetworkConstants;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

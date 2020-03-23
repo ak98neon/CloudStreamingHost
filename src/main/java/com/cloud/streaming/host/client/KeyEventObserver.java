@@ -1,4 +1,4 @@
-package com.cloud.streaming.host.gui;
+package com.cloud.streaming.host.client;
 
 import com.cloud.streaming.host.server.EventData;
 
@@ -12,16 +12,16 @@ public class KeyEventObserver extends EventObserver implements java.awt.event.Ke
 
     @Override
     public void keyTyped(java.awt.event.KeyEvent e) {
-
-    }
-
-    @Override
-    public void keyPressed(java.awt.event.KeyEvent e) {
-        super.sendEvent(EventType.KEY_PRESS);
+        super.sendEvent(EventType.KEY_TYPED);
         int keyCode = e.getKeyCode();
         System.out.println("key: " + keyCode);
         super.send(new EventData(keyCode));
         super.flush();
+    }
+
+    @Override
+    public void keyPressed(java.awt.event.KeyEvent e) {
+
     }
 
     @Override
