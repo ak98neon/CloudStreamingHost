@@ -11,6 +11,7 @@ public class WindowPanel extends JPanel {
     }
 
     public void paintImage(Image image) {
-        this.getGraphics().drawImage(image, 0, 0, this);
+        Graphics graphics = this.getGraphics();
+        graphics.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
     }
 }

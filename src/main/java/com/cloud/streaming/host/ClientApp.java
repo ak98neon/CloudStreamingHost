@@ -27,7 +27,7 @@ public class ClientApp extends Thread {
             OutputStream outputStream = socket.getOutputStream();
             KeyEventObserver keyListener = new KeyEventObserver(outputStream);
             MouseEventObserver mouseListener = new MouseEventObserver(outputStream);
-            
+
             WindowPanel windowPanel = new WindowPanel(mouseListener, keyListener);
             JFrame window = new JFrame("Streaming screen");
             window.add(windowPanel);
@@ -47,8 +47,7 @@ public class ClientApp extends Thread {
                 Image image = ImageIO.read(new ByteArrayInputStream(bytes));
                 image = image.getScaledInstance(windowPanel.getWidth(), windowPanel.getHeight(), Image.SCALE_FAST);
 
-                Graphics graphics = windowPanel.getGraphics();
-                graphics.drawImage(image, 0, 0, windowPanel.getWidth(), windowPanel.getHeight(), windowPanel);
+                windowPanel.paintImage(image);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
