@@ -15,20 +15,30 @@ public class MouseEventObserver extends EventObserver implements java.awt.event.
 
     @Override
     public void mouseClicked(java.awt.event.MouseEvent e) {
-
     }
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
-        sendEvent(EventType.MOUSE_CLICK);
+        sendEvent(EventType.MOUSE_PRESS);
         int button = e.getButton();
-        send(new EventData(button));
+        int xButton = 16;
+        if (button == 3) {
+            xButton = 4;
+        }
+        send(new EventData(xButton));
         flush();
     }
 
     @Override
     public void mouseReleased(java.awt.event.MouseEvent e) {
-
+        sendEvent(EventType.MOUSE_RELEASE);
+        int button = e.getButton();
+        int xButton = 16;
+        if (button == 3) {
+            xButton = 4;
+        }
+        send(new EventData(xButton));
+        flush();
     }
 
     @Override
