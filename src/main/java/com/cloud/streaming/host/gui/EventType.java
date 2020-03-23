@@ -3,6 +3,7 @@ package com.cloud.streaming.host.gui;
 public enum EventType {
     MOUSE_CLICK(1),
     KEY_PRESS(2),
+    MOUSE_MOVE(3),
     ;
 
     private int code;
