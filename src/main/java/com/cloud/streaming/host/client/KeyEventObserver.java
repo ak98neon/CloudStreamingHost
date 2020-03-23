@@ -13,7 +13,6 @@ public class KeyEventObserver extends EventObserver implements KeyListener {
 
     @Override
     public void keyTyped(java.awt.event.KeyEvent e) {
-        System.out.println();
     }
 
     @Override
