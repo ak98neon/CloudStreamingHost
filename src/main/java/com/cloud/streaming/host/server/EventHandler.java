@@ -29,11 +29,8 @@ public class EventHandler extends Thread {
 
     public void handleMouseMove(EventData data) {
         Dimension screenSize = toolkit.getScreenSize();
-        double xScale = screenSize.getWidth() / data.getScreenWidth();
-        double yScale = screenSize.getHeight() / data.getScreenHeight();
-
-        int x = (int) (data.getX() * xScale);
-        int y = (int) (data.getY() * yScale);
+        int x = (int) ((data.getX() * screenSize.getWidth()) / data.getScreenWidth());
+        int y = (int) ((data.getY() * screenSize.getHeight()) / data.getScreenHeight());
         robot.mouseMove(x, y);
     }
 
