@@ -8,6 +8,8 @@ public class WindowPanel extends JPanel {
         this.addMouseListener(mouseListener);
         this.addMouseMotionListener(mouseListener);
         this.addKeyListener(keyListener);
+        this.setFocusable(true);
+        this.requestFocusInWindow();
     }
 
     public void paintImage(Image image) {

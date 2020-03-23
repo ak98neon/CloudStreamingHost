@@ -2,9 +2,10 @@ package com.cloud.streaming.host.client;
 
 import com.cloud.streaming.host.server.EventData;
 
+import java.awt.event.KeyListener;
 import java.io.OutputStream;
 
-public class KeyEventObserver extends EventObserver implements java.awt.event.KeyListener {
+public class KeyEventObserver extends EventObserver implements KeyListener {
 
     public KeyEventObserver(OutputStream outputStream) {
         super(outputStream);
@@ -12,6 +13,7 @@ public class KeyEventObserver extends EventObserver implements java.awt.event.Ke
 
     @Override
     public void keyTyped(java.awt.event.KeyEvent e) {
+        System.out.println();
     }
 
     @Override
