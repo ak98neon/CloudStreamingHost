@@ -19,11 +19,13 @@ public class EventHandler extends Thread {
     }
 
     public void handleMousePress(EventData data) {
-        robot.mouseMove(data.getX(), data.getY());
+        robot.mousePress(data.getKeyCode());
     }
 
     public void handleMouseMove(EventData data) {
-        robot.mouseMove(data.getX(), data.getY());
+        int x = (int) (data.getScreenWidth() / data.getX());
+        int y = (int) (data.getScreenHeight() / data.getY());
+        robot.mouseMove(x, y);
     }
 
     public void handleKeyPress(EventData data) {

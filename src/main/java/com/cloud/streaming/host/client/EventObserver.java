@@ -3,11 +3,13 @@ package com.cloud.streaming.host.client;
 import com.cloud.streaming.host.server.EventData;
 import com.google.gson.Gson;
 
+import java.awt.*;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Objects;
 
 public abstract class EventObserver {
+    static Toolkit toolkit = Toolkit.getDefaultToolkit();
     private PrintWriter printWriter;
     private Gson gson = new Gson();
 
@@ -27,5 +29,9 @@ public abstract class EventObserver {
 
     public void flush() {
         printWriter.flush();
+    }
+
+    public Dimension getScreenSize() {
+        return toolkit.getScreenSize();
     }
 }

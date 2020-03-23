@@ -12,11 +12,11 @@ public class KeyEventObserver extends EventObserver implements java.awt.event.Ke
 
     @Override
     public void keyTyped(java.awt.event.KeyEvent e) {
-        super.sendEvent(EventType.KEY_TYPED);
+        sendEvent(EventType.KEY_TYPED);
         int keyCode = e.getKeyCode();
         System.out.println("key: " + keyCode);
-        super.send(new EventData(keyCode));
-        super.flush();
+        send(new EventData(keyCode));
+        flush();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.cloud.streaming.host.client;
 
 import com.cloud.streaming.host.server.EventData;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.io.OutputStream;
@@ -19,12 +20,10 @@ public class MouseEventObserver extends EventObserver implements java.awt.event.
 
     @Override
     public void mousePressed(java.awt.event.MouseEvent e) {
-        super.sendEvent(EventType.MOUSE_CLICK);
-        int x = e.getX();
-        int y = e.getY();
-        System.out.println("x:" + x + " y: " + y);
-        super.send(new EventData(x, y));
-        super.flush();
+        sendEvent(EventType.MOUSE_CLICK);
+        int button = e.getButton();
+        send(new EventData(button));
+        flush();
     }
 
     @Override
@@ -49,11 +48,12 @@ public class MouseEventObserver extends EventObserver implements java.awt.event.
 
     @Override
     public void mouseMoved(MouseEvent e) {
-        super.sendEvent(EventType.MOUSE_MOVE);
+        sendEvent(EventType.MOUSE_MOVE);
         int x = e.getX();
         int y = e.getY();
         System.out.println("x:" + x + " y: " + y);
-        super.send(new EventData(x, y));
-        super.flush();
+        Dimension screenSize = getScreenSize();
+        send(new EventData(x, y, screenSize.getHeight(), screenSize.getWidth()));
+        flush();
     }
 }
