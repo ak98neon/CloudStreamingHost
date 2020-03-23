@@ -1,5 +1,7 @@
 package com.cloud.streaming.host.server;
 
+import com.cloud.streaming.host.NetworkConstants;
+
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -39,8 +41,7 @@ public class MachineClient extends Thread {
 
                 ImageIO.write(screenCapture, "png", tmp);
                 System.out.println("Image size: " + tmp.size());
-//                ImageIO.write(screenCapture, "jpeg", outputStream);
-                writeJPG(screenCapture, outputStream, 0.3F);
+                writeJPG(screenCapture, outputStream, NetworkConstants.QUALITY);
                 tmp.reset();
             }
         } catch (Exception e) {
