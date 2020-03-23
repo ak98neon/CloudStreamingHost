@@ -25,7 +25,7 @@ public class KeyEventObserver extends EventObserver implements java.awt.event.Ke
 
     @Override
     public void keyReleased(java.awt.event.KeyEvent e) {
-        sendEvent(EventType.KEY_RELEASED);
+        sendEvent(EventType.KEY_RELEASE);
         int keyCode = e.getKeyCode();
         System.out.println("key: " + keyCode);
         send(new EventData(keyCode));
